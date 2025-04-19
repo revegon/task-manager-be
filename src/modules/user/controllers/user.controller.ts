@@ -1,6 +1,6 @@
 import { BaseController } from 'src/common/controllers/base.controller';
 import { User } from '../entities/user.entity';
-import { UserDto } from '../dto/user-dto';
+import { UserDto } from '../dto/user.dto';
 import { UserService } from '../services/user.service';
 import { Controller } from '@nestjs/common';
 

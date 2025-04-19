@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 import { BaseService } from '../services/base.service';
 import { BaseEntity } from '../entities/base.entity';
-import { RequestDto } from '../dtos/req';
+import { RequestDto } from '../dtos/req.dto';
 
 export abstract class BaseController<
   T extends BaseEntity,

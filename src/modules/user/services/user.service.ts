@@ -12,4 +12,8 @@ export class UserService extends BaseService<User> {
   ) {
     super(userRepository);
   }
+
+  async findByUsername(username: string) {
+    return await this.userRepository.findOneBy({ username });
+  }
 }
