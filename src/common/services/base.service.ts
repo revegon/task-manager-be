@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { DeepPartial, FindManyOptions, Repository } from 'typeorm';
 import { BaseEntity } from '../entities/base.entity';
 import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity';
@@ -16,7 +16,7 @@ export abstract class BaseService<T extends BaseEntity> {
     return this.repository.find(options);
   }
 
-  async getPaginatedProducts(
+  async getPaginatedRecords(
     options?: FindManyOptions<T>,
     page: number = 1,
     limit: number = 10,
@@ -44,6 +44,10 @@ export abstract class BaseService<T extends BaseEntity> {
     id: number,
     data: Partial<Record<keyof T, any>> & QueryDeepPartialEntity<T>,
   ) {
+    const entity = this.findOne(id);
+    if (!entity) {
+      throw new BadRequestException('No record exist with id: ' + id);
+    }
     await this.repository.update(id, data);
     return this.findOne(id);
   }
