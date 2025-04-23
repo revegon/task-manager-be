@@ -1,26 +1,36 @@
-<p align="center">Task Managing App</p>
+# Task Managing App
 
-## Project setup
+<p align="center">
+  <img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" />
+</p>
+
+## Project Setup
 
 ```bash
-$ npm install
+npm install
 ```
 
-## env file
+## Environment Configuration
 
 create .env file in the root directory with following items:
+
+# App Configuration
 
 NODE_ENV=
 PORT=
 API_PREFIX=
 
+# Database Configuration
+
 DB_HOST=
 DB_PORT=
 DB_USERNAME=
 DB_PASSWORD=
-DB_NAME=d
+DB_NAME=
 DB_SSL=
 DB_RUN_MIGRATIONS=
+
+# JWT Configuration
 
 JWT_SECRET=
 JWT_EXPIRES_IN=
@@ -89,4 +99,4 @@ Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 
 ## Challenge Faced
 
-Jwt setup and Jwt module handling was quite challenge as I had to search for a solution for several hours.
+- Jwt setup and Jwt module handling was quite challenge as I had to search for a solution for several hours.
