@@ -1,5 +1,5 @@
 import { IsStrongPassword } from 'class-validator';
-import { RequestDto } from 'src/common/dtos/req.dto';
+import { RequestDto } from 'src/common/dtos/common.dto';
 
 export class RegisterDto extends RequestDto {
   username: string;

@@ -24,8 +24,8 @@ export abstract class BaseService<T extends BaseEntity> {
     const queryParams = options || {};
     const [entities, total] = await this.repository.findAndCount({
       ...queryParams,
-      skip: (page - 1) * limit, // Offset
-      take: limit, // Limit
+      skip: (page - 1) * limit,
+      take: limit,
     });
 
     return {
@@ -53,6 +53,6 @@ export abstract class BaseService<T extends BaseEntity> {
   }
 
   async delete(id: number) {
-    await this.repository.softDelete(id);
+    await this.repository.delete(id);
   }
 }

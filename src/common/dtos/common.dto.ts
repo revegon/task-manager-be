@@ -1,6 +1,8 @@
-import { IsInt, IsOptional, IsString, Max, Min } from 'class-validator';
+import { IsInt, IsOptional, Max, Min } from 'class-validator';
 
 export class RequestDto {}
+
+export class RespDto {}
 
 export class SearchDto {
   @IsOptional()
