@@ -12,8 +12,9 @@ npm install
 
 ## Environment Configuration
 
-create .env file in the root directory with following items:
+create `.env` file in the root directory with following items:
 
+```
 # App Configuration
 
 NODE_ENV=
@@ -36,6 +37,7 @@ JWT_SECRET=
 JWT_EXPIRES_IN=
 JWT_REFRESH_SECRET=
 JWT_REFRESH_EXPIRES_IN=
+```
 
 ## Compile and run the project
 
