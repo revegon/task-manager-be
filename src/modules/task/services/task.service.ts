@@ -1,5 +1,5 @@
 import { BaseService } from 'src/common/services/base.service';
-import { FindManyOptions, FindOptionsWhere, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { Task } from '../entities/task.entity';
 import { TaskStatus } from '../constants/task-status';
 import { BadRequestException } from '@nestjs/common';

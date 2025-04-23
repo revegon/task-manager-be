@@ -5,6 +5,7 @@ import { Request } from 'express';
 import { TaskService } from '../services/task.service';
 import {
   Controller,
+  Get,
   Param,
   Patch,
   Post,
@@ -50,6 +51,12 @@ export class TaskController extends BaseController<
         // status: TaskStatus.PENDING,
       }),
     );
+  }
+
+  @Get('/pending')
+  @UseGuards(JwtAuthGuard)
+  async getAll() {
+    return this.taskService.findAll({ where: { status: TaskStatus.PENDING } });
   }
 
   @Patch(':id/complete')
