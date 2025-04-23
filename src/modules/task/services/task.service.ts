@@ -18,15 +18,16 @@ export class TaskService extends BaseService<Task> {
     if (!task) {
       throw new BadRequestException('Task does not exist');
     }
-    if (task.status == TaskStatus.COMPLETED) {
-      if (status == TaskStatus.COMPLETED) {
-        throw new BadRequestException('Task is already completed');
-      } else {
-        throw new BadRequestException(
-          "Completed Task can't be chnaged to " + status,
-        );
-      }
-    } else if (task.status == status) {
+    // if (task.status == TaskStatus.COMPLETED) {
+    //   if (status == TaskStatus.COMPLETED) {
+    //     throw new BadRequestException('Task is already completed');
+    //   } else {
+    //     throw new BadRequestException(
+    //       "Completed Task can't be chnaged to " + status,
+    //     );
+    //   }
+    // } else
+    if (task.status == status) {
       throw new BadRequestException('Task is already in ' + status);
     }
 
