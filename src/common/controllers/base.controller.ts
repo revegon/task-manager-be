@@ -14,6 +14,7 @@ import { BaseEntity } from '../entities/base.entity';
 import { RequestDto, RespDto, SearchDto } from '../dtos/common.dto';
 import { Request } from 'express';
 import { JwtAuthGuard } from '../guards/jwt.guard';
+import { FindOptionsWhere } from 'typeorm';
 
 export abstract class BaseController<
   T extends BaseEntity,
@@ -36,7 +37,7 @@ export abstract class BaseController<
   async findAllOrSearch(@Query() search: Search) {
     const { page, size, ...query } = search;
     const { data, ...rest } = await this.baseService.getPaginatedRecords(
-      query,
+      query as FindOptionsWhere<T>,
       page,
       size,
     );

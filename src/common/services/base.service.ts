@@ -1,5 +1,10 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { DeepPartial, FindManyOptions, Repository } from 'typeorm';
+import {
+  DeepPartial,
+  FindManyOptions,
+  FindOptionsWhere,
+  Repository,
+} from 'typeorm';
 import { BaseEntity } from '../entities/base.entity';
 import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity';
 
@@ -17,13 +22,14 @@ export abstract class BaseService<T extends BaseEntity> {
   }
 
   async getPaginatedRecords(
-    options?: FindManyOptions<T>,
+    options?: FindOptionsWhere<T>,
     page: number = 1,
     limit: number = 10,
   ) {
     const queryParams = options || {};
+    console.log(queryParams);
     const [entities, total] = await this.repository.findAndCount({
-      ...queryParams,
+      where: queryParams,
       skip: (page - 1) * limit,
       take: limit,
     });
